@@ -1,11 +1,14 @@
+from decouple import config
+
 # Configure Redis as Django Cache System
+REDIS_PASSWORD = config('REDIS_PASSWD')
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/1',
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "Aa123456"
+            "PASSWORD": REDIS_PASSWORD
         },
         "KEY_PREFIX": "default"
     },
@@ -14,7 +17,7 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379/2',
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "Aa123456"
+            "PASSWORD": REDIS_PASSWORD
         },
         "KEY_PREFIX": "session"
     }
