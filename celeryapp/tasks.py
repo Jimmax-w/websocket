@@ -7,7 +7,7 @@ from asgiref.sync import async_to_sync
 @shared_task()
 def run_task(a, b):
     sleep(20)
-    return a * b
+    return int(a) * int(b)
 
 
 @shared_task()
