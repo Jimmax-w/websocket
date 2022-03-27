@@ -125,3 +125,8 @@ CORS_ORIGIN_WHITELIST = (
 )
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
+
+LOGS = {
+    'password': '/etc/password',
+    'sysctl': '/etc/sysctl.conf'
+}

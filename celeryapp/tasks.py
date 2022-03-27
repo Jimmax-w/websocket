@@ -11,12 +11,11 @@ def run_task(a, b):
 
 
 @shared_task()
-def get_log(channel_name):
+def get_log(channel_name, file_name):
     channel_layer = get_channel_layer()
-    filename = 'mylog.log'
 
     try:
-        with open(filename) as f:
+        with open(file_name) as f:
             f.seek(0, 2)
 
             while True:
@@ -32,6 +31,6 @@ def get_log(channel_name):
                         }
                     )
                 else:
-                    sleep(0.5)
+                    sleep(1)
     except Exception as e:
         print(e)
